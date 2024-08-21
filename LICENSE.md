@@ -1,3 +1,6 @@
+| [English](#english) | [O'zbekcha](#ozbekcha)  |
+|---------------------|-------------------------|
+
 # English
 
 ## **Intellectual Property License**
