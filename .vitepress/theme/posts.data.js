@@ -13,7 +13,7 @@ const formatDate = (raw) => {
   }
 }
 
-const data = createContentLoader('blog/posts/*.md', {
+const data = createContentLoader('/blog/posts/*.md', {
   excerpt: true,
   transform(raw) {
     return raw

@@ -14,10 +14,15 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  server: {
+    watch: {
+      usePolling: true
+    }
+  },
   title: 'Dev docs',
   lang: 'uz',
-  // base: '/', // for localhost
-  base: '/dev-docs/', // for pages
+  base: '/', // for localhost
+  // base: '/dev-docs/', // for pages
   head,
   description:
     "Dasturlash tillari va texnologiyalarining O'zbek tilidagi interaktiv qo'llanmalari uchun platforma.",

@@ -1,5 +1,6 @@
 ---
-layout: PostLayout
+layout: BlogLayout
+post: true
 title: "Vue 2 is Approaching End Of Life"
 date: 2023-12-15
 author: Evan You

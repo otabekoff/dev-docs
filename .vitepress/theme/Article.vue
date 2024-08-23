@@ -6,17 +6,33 @@ import { useData, useRoute } from 'vitepress'
 import { data as posts } from './posts.data.js'
 
 const { frontmatter: data } = useData()
-
 const route = useRoute()
 
-function findCurrentIndex() {
+const currentIndex = computed(() => {
   return posts.findIndex((p) => p.url === route.path)
-}
+})
 
-// use the customData date which contains pre-resolved date info
-const date = computed(() => posts[findCurrentIndex()].date)
-const nextPost = computed(() => posts[findCurrentIndex() - 1])
-const prevPost = computed(() => posts[findCurrentIndex() + 1])
+const date = computed(() => {
+  const index = currentIndex.value
+  const post = posts[index]
+  if (post) {
+    return post.date
+  } else {
+    console.error('Post not found for route:', route.path)
+    return { time: 0, string: 'Date not available' }
+  }
+})
+
+
+const nextPost = computed(() => {
+  const index = currentIndex.value
+  return posts[index - 1]
+})
+
+const prevPost = computed(() => {
+  const index = currentIndex.value
+  return posts[index + 1]
+})
 </script>
 
 <template>
@@ -25,7 +41,7 @@ const prevPost = computed(() => posts[findCurrentIndex() + 1])
       <Date :date="date" />
       <h1
         class="text-3xl leading-9 font-extrabold text-gray-900 dark:text-white tracking-wide sm:text-3xl sm:leading-10 md:text-5xl md:leading-14">
-        {{ data.title }}
+        {{ data.title || 'Title not available' }}
       </h1>
     </header>
 
@@ -40,17 +56,13 @@ const prevPost = computed(() => posts[findCurrentIndex() + 1])
       <footer
         class="text-sm font-medium leading-5 divide-y divide-gray-200 dark:divide-slate-200/5 xl:col-start-1 xl:row-start-2">
         <div v-if="nextPost" class="py-8">
-          <h2 class="text-xs tracking-wide uppercase text-gray-500 dark:text-white">
-            Keyingi maqola
-          </h2>
+          <h2 class="text-xs tracking-wide uppercase text-gray-500 dark:text-white">Keyingi maqola</h2>
           <div class="link">
             <a :href="nextPost.url">{{ nextPost.title }}</a>
           </div>
         </div>
         <div v-if="prevPost" class="py-8">
-          <h2 class="text-xs tracking-wide uppercase text-gray-500 dark:text-white">
-            Avvalgi maqola
-          </h2>
+          <h2 class="text-xs tracking-wide uppercase text-gray-500 dark:text-white">Avvalgi maqola</h2>
           <div class="link">
             <a :href="prevPost.url">{{ prevPost.title }}</a>
           </div>

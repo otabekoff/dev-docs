@@ -1,6 +1,6 @@
 ---
-layout: doc
-aside: false
+layout: BlogLayout
+post: true
 title: Announcing Vue 3.4
 date: 2023-12-28
 author: Evan You

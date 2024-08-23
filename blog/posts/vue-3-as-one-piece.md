@@ -1,6 +1,7 @@
 ---
-layout: doc
-aside: false
+layout: BlogLayout
+post: true
+nav: false
 title: Announcing Vue 3.0 "One Piece"
 date: 2020-09-18
 author: Evan You
