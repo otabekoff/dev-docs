@@ -21,8 +21,8 @@ export default defineConfig({
   },
   title: 'Dev docs',
   lang: 'uz',
-  base: '/', // for localhost
-  // base: '/dev-docs/', // for pages
+  // base: '/', // for localhost
+  base: '/dev-docs/', // for pages
   head,
   description:
     "Dasturlash tillari va texnologiyalarining O'zbek tilidagi interaktiv qo'llanmalari uchun platforma.",
