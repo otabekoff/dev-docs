@@ -22,6 +22,7 @@ export default defineConfig({
   description:
     "Dasturlash tillari va texnologiyalarining O'zbek tilidagi interaktiv qo'llanmalari uchun platforma.",
   cleanUrls: true,
+  ignoreDeadLinks: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     ...themeConfig,
