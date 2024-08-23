@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "strict": true,
+    "jsx": "preserve"
+  },
+  "include": ["./.vitepress/**/*"],
+  "exclude": [
+    "./.vitepress/dist/**/*",
+    "./.vitepress/cache/**/*",
+    "./.vitepress/theme/**/*"
+  ]
+}
