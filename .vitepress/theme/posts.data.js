@@ -1,5 +1,5 @@
-import { createContentLoader, loadEnv } from 'vitepress'
-const env = loadEnv('', process.cwd()) // Load environment variables
+import { createContentLoader } from 'vitepress'
+import 'dotenv/config'
 
 const formatDate = (raw) => {
   const date = new Date(raw)
@@ -14,8 +14,8 @@ const formatDate = (raw) => {
   }
 }
 
-// Get the base URL from environment variables (fallback to '/')
-const base = env.BASE_URL || '/'
+const base = process.env.BASE_URL
+// Fallback to '/' if the environment variable is not set
 
 const data = createContentLoader('/blog/posts/*.md', {
   excerpt: true,
@@ -23,7 +23,7 @@ const data = createContentLoader('/blog/posts/*.md', {
     return raw
       .map(({ url, frontmatter, excerpt }) => ({
         title: frontmatter.title,
-        url: base === '/dev-docs/' ? '/dev-docs' + url : url, // Adjust the base URL dynamically
+        url: base === '/dev-docs/' ? '/dev-docs' + url : url,
         excerpt,
         date: formatDate(frontmatter.date)
       }))
