@@ -91,4 +91,4 @@ To learn more about Vue 3.0, check out our [new documentation website](https://v
 
 ---
 
-- \*based on [Vue Devtools Chrome extension](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) weekly active users as reported by Google.
+- *based on [Vue Devtools Chrome extension](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) weekly active users as reported by Google.*

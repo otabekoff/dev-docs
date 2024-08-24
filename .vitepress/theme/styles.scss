@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /**
  * Customize default theme styling by overriding CSS variables:
  * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
@@ -49,7 +52,9 @@
   --vp-c-default-3: var(--vp-c-gray-3);
   --vp-c-default-soft: var(--vp-c-gray-soft);
 
-  --vp-c-brand-1: var(--vp-c-indigo-1);
+  /* --vp-c-brand-1: var(--vp-c-indigo-1); */
+  /* --vp-c-brand-3: var(--vp-c-indigo-3); */
+  --vp-c-brand-1: #6f82ff;
   --vp-c-brand-2: var(--vp-c-indigo-2);
   --vp-c-brand-3: var(--vp-c-indigo-3);
   --vp-c-brand-soft: var(--vp-c-indigo-soft);
@@ -127,6 +132,7 @@
   --vp-custom-block-tip-text: var(--vp-c-text-1);
   --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
   --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+  --vp-code-color: #8286ff;
 }
 
 /**
@@ -147,219 +153,17 @@
 }
 
 :root {
-  --vp-code-copy-copied-text-content: "Nusxalandi";
+  --vp-code-copy-copied-text-content: 'Nusxalandi';
 }
 
 /* or if you want to change only for a locale: */
 
 :lang(uz) {
-  --vp-code-copy-copied-text-content: "Nusxalandi";
+  --vp-code-copy-copied-text-content: 'Nusxalandi';
 }
 
 .VPImage.image-src {
-  user-select: none;
-  user-zoom: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
-}
-
-/* BLOG FALVORED */
-
-
-.vp-code span {
-  color: var(--shiki-dark, inherit);
-}
-
-:root {
-  --c-brand: #3eaf7c;
-  --c-brand-light: #4abf8a;
-}
-
-nav img {
-  vertical-align: middle;
-}
-
-p img {
-  margin: 0px auto;
-}
-
-.prose hr {
-  border-top: 1px solid #e5e7eb;
-}
-
-.link {
-  color: var(--c-brand);
-}
-
-.link:hover {
-  color: var(--c-brand-light);
-}
-
-.header-anchor {
-  display: none;
-}
-
-h3 .header-anchor {
-  display: inline-block;
-  position: absolute;
-  left: -1em;
-  text-decoration: none;
-  color: var(--c-brand);
-}
-
-h3 .header-anchor:before {
-  content: "#";
-}
-
-/**
- * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML.
- * Based on https://github.com/chriskempson/tomorrow-theme
- *
- * @author Rose Pritchard
- */
-.token.comment,
-.token.block-comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #999;
-}
-
-.token.punctuation {
-  color: #ccc;
-}
-
-.token.tag,
-.token.attr-name,
-.token.namespace,
-.token.deleted {
-  color: #e2777a;
-}
-
-.token.function-name {
-  color: #6196cc;
-}
-
-.token.boolean,
-.token.number,
-.token.function {
-  color: #f08d49;
-}
-
-.token.property,
-.token.class-name,
-.token.constant,
-.token.symbol {
-  color: #f8c555;
-}
-
-.token.selector,
-.token.important,
-.token.atrule,
-.token.keyword,
-.token.builtin {
-  color: #cc99cd;
-}
-
-.token.string,
-.token.char,
-.token.attr-value,
-.token.regex,
-.token.variable {
-  color: #7ec699;
-}
-
-.token.operator,
-.token.entity,
-.token.url {
-  color: #67cdcc;
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
-}
-
-.token.entity {
-  cursor: help;
-}
-
-.token.inserted {
-  color: #67cdcc;
-}
-
-button.copy {
-  display: none;
-}
-
-span.lang {
-  position: absolute;
-  right: 0.5em;
-  font-size: 0.75em;
-  color: #999;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
-}
-
-.custom-block {
-  margin: 28px 0;
-  padding: 0 24px 2px;
-  border-radius: 8px;
-  overflow-x: auto;
-  position: relative;
-  font-size: 14px;
-  line-height: 1.3;
-  font-weight: 500;
-  color: #444;
-  background-color: #f9f9f9;
-}
-.custom-block .custom-block-title {
-  margin-bottom: 8px;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.custom-block.tip {
-  border: 1px solid #42b883;
-}
-.custom-block.tip:before {
-  color: #42b883;
-}
-
-.prose
-  :where(:not(pre) > code):not(
-    :where([class~="not-prose"], [class~="not-prose"] *)
-  ) {
-  color: #0a3760;
-  padding: 0.25em 0.4em;
-  border-radius: 4px;
-  background-color: #eee;
-}
-
-.prose
-  :where(code):not(
-    :where([class~="not-prose"], [class~="not-prose"] *)
-  )::before {
-  content: "" !important;
-}
-
-.prose
-  :where(code):not(
-    :where([class~="not-prose"], [class~="not-prose"] *)
-  )::after {
-  content: "" !important;
-}
-
-@media (prefers-color-scheme: dark) {
-  .prose
-    :where(:not(pre) > code):not(
-      :where([class~="not-prose"], [class~="not-prose"] *)
-    ) {
-    color: #d1e9ff;
-    background-color: #3c3a5b;
-  }
+  user-select: none;
 }

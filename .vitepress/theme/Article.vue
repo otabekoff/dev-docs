@@ -49,41 +49,170 @@ const prevPost = computed(() => {
 </script>
 
 <template>
-  <article class="xl:divide-y xl:divide-gray-200 dark:xl:divide-slate-200/5">
-    <header class="pt-6 xl:pb-10 space-y-1 text-center">
+  <article class="article-page">
+    <header class="pt-6 space-y-1 text-center">
+      <Author />
       <Date :date="date" />
-      <h1
-        class="text-3xl leading-9 font-extrabold text-gray-900 dark:text-white tracking-wide sm:text-3xl sm:leading-10 md:text-5xl md:leading-14">
+      <h1 class="text-7xl leading-9 font-extrabold tracking-wide sm:text-7xl sm:leading-10 md:text-7xl md:leading-14">
         {{ data.title || 'Title not available' }}
       </h1>
     </header>
 
-    <div
-      class="divide-y xl:divide-y-0 divide-gray-200 dark:divide-slate-200/5 xl:grid xl:grid-cols-4 xl:gap-x-10 pb-16 xl:pb-20"
-      style="grid-template-rows: auto 1fr">
-      <Author />
-      <div class="divide-y divide-gray-200 dark:divide-slate-200/5 xl:pb-0 xl:col-span-3 xl:row-span-2">
-        <Content class="prose dark:prose-invert max-w-none pt-10 pb-8" />
-      </div>
+    <div class="divide-y xl:divide-y-0 pb-16 xl:pb-6">
+      <section class="article-navigation">
 
-      <footer
-        class="text-sm font-medium leading-5 divide-y divide-gray-200 dark:divide-slate-200/5 xl:col-start-1 xl:row-start-2">
-        <div v-if="nextPost" class="py-8">
-          <h2 class="text-xs tracking-wide uppercase text-gray-500 dark:text-white">Next Post</h2>
-          <div class="link">
-            <a :href="nextPost.url">{{ nextPost.title }}</a>
-          </div>
-        </div>
-        <div v-if="prevPost" class="py-8">
-          <h2 class="text-xs tracking-wide uppercase text-gray-500 dark:text-white">Previous Post</h2>
+        <div v-if="prevPost" class="article-navigation-btn">
+          <h6 class="text-xs tracking-wide uppercase">Avvalgi maqola</h6>
           <div class="link">
             <a :href="prevPost.url">{{ prevPost.title }}</a>
           </div>
         </div>
-        <div class="pt-8">
-          <a class="link" :href="withBase('/blog/')">← Back to Blog</a>
+        <div class="article-navigation-btn">
+          <h6 class="text-xs tracking-wide uppercase">Ortga qaytish</h6>
+          <a class="link" :href="withBase('/blog/')">Maqolalar sahifasi</a>
         </div>
-      </footer>
+        <div v-if="nextPost" class="article-navigation-btn">
+          <h6 class="text-xs tracking-wide uppercase">Keyingi maqola</h6>
+          <div class="link">
+            <a :href="nextPost.url">{{ nextPost.title }}</a>
+          </div>
+        </div>
+      </section>
+      <div class="divide-y xl:pb-0 xl:col-span-3 xl:row-span-2">
+        <Content class="max-w-none pb-1" />
+      </div>
+
+      <section class="article-navigation">
+
+        <div v-if="prevPost" class="article-navigation-btn">
+          <h6 class="text-xs tracking-wide uppercase">Avvalgi maqola</h6>
+          <div class="link">
+            <a :href="prevPost.url">{{ prevPost.title }}</a>
+          </div>
+        </div>
+        <div class="article-navigation-btn">
+          <h6 class="text-xs tracking-wide uppercase">Ortga qaytish</h6>
+          <a class="link" :href="withBase('/blog/')">Maqolalar sahifasi</a>
+        </div>
+        <div v-if="nextPost" class="article-navigation-btn">
+          <h6 class="text-xs tracking-wide uppercase">Keyingi maqola</h6>
+          <div class="link">
+            <a :href="nextPost.url">{{ nextPost.title }}</a>
+          </div>
+        </div>
+      </section>
     </div>
   </article>
 </template>
+
+<style lang="scss">
+.article-page {
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span {
+    * {
+      font-family: ui-sans-serif,
+        system-ui,
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        Segoe UI Symbol,
+        "Noto Color Emoji";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: auto;
+    }
+  }
+
+  .article-navigation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0px;
+  }
+
+  pre,
+  code {
+    font-family: ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Liberation Mono",
+      "Courier New",
+      monospace;
+  }
+
+  .link,
+  a,
+  .vp-doc a {
+    // color: greenyellow;
+    text-decoration: none !important;
+  }
+
+  .link:hover,
+  a:hover {
+    text-decoration: underline #5c73e7;
+  }
+}
+
+.article-navigation-btn {
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  padding: 12px 20px;
+  min-height: 60px;
+  height: 64px;
+  max-height: 66px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  color: white !important;
+  width: 250px;
+  min-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+
+  * {
+    color: rgb(158, 158, 158) !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    max-width: calc(250px - 40px);
+  }
+}
+
+@media (min-width: 768px) {
+  .vp-doc h1 {
+    letter-spacing: 0.012em;
+    line-height: 60px;
+    font-size: 46px;
+  }
+}
+
+.article-navigation-btn:hover {
+  background-color: #6f82ff12;
+  border-color: #6f82ff;
+  cursor: pointer;
+  color: #6f82ff !important;
+
+  * {
+    color: #6f82ff !important;
+
+    :hover {
+      color: #6f82ff !important;
+    }
+  }
+}
+</style>

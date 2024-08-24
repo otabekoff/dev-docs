@@ -10,7 +10,7 @@ twitter: '@youyuxi'
 
 Today we're excited to announce the release of Vue 3.4 "🏀 Slam Dunk"!
 
-This release includes some substantial internal improvements - most notably a rewritten template parser that is 2x faster, and a refactored reactivity system that makes effect triggering more accurate and efficient. It also packs a number of quality-of-life API improvements, including the stabilization of `defineModel` and a new same-name shorthand when binding props.
+This release includes some substantial internal improvements - most notably a rewritten template parser that is 2x faster, and a refactored reactivity system that makes effect triggering more accurate and efficient. It also packs a number of quality-of-life API improvements, including the stabilization of<wbr>`defineModel` and a new same-name shorthand when binding props.
 
 This post provides an overview of the highlighted features in 3.4. For the full list of changes, please consult
 [the full changelog on GitHub](https://github.com/vuejs/core/blob/main/CHANGELOG.md#340-2023-12-28).

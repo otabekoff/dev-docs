@@ -1,8 +1,7 @@
 // https://vitepress.dev/guide/custom-theme
 import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
-import './style.css'
-import './blog.css'
+import './styles.scss'
 
 // Custom Layouts
 import BlogLayout from './BlogLayout.vue'
