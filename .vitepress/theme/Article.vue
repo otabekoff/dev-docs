@@ -2,7 +2,7 @@
 import Date from './Date.vue'
 import Author from './Author.vue'
 import { computed } from 'vue'
-import { useData, useRoute } from 'vitepress'
+import { useData, useRoute, withBase } from 'vitepress'
 import { data as posts } from './posts.data.js'
 
 const { frontmatter: data } = useData()
@@ -23,15 +23,28 @@ const date = computed(() => {
   }
 })
 
-
 const nextPost = computed(() => {
   const index = currentIndex.value
-  return posts[index - 1]
+  if (index > 0) {
+    return {
+      ...posts[index - 1],
+      url: posts[index - 1].url // Apply base URL
+    }
+  } else {
+    return null
+  }
 })
 
 const prevPost = computed(() => {
   const index = currentIndex.value
-  return posts[index + 1]
+  if (index < posts.length - 1) {
+    return {
+      ...posts[index + 1],
+      url: posts[index + 1].url // Apply base URL
+    }
+  } else {
+    return null
+  }
 })
 </script>
 
@@ -56,19 +69,19 @@ const prevPost = computed(() => {
       <footer
         class="text-sm font-medium leading-5 divide-y divide-gray-200 dark:divide-slate-200/5 xl:col-start-1 xl:row-start-2">
         <div v-if="nextPost" class="py-8">
-          <h2 class="text-xs tracking-wide uppercase text-gray-500 dark:text-white">Keyingi maqola</h2>
+          <h2 class="text-xs tracking-wide uppercase text-gray-500 dark:text-white">Next Post</h2>
           <div class="link">
             <a :href="nextPost.url">{{ nextPost.title }}</a>
           </div>
         </div>
         <div v-if="prevPost" class="py-8">
-          <h2 class="text-xs tracking-wide uppercase text-gray-500 dark:text-white">Avvalgi maqola</h2>
+          <h2 class="text-xs tracking-wide uppercase text-gray-500 dark:text-white">Previous Post</h2>
           <div class="link">
             <a :href="prevPost.url">{{ prevPost.title }}</a>
           </div>
         </div>
         <div class="pt-8">
-          <a class="link" href="/">← Blog sahifasiga qaytish</a>
+          <a class="link" :href="withBase('/blog/')">← Back to Blog</a>
         </div>
       </footer>
     </div>

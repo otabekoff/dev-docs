@@ -11,18 +11,13 @@ import editLink from './editLink'
 import lastUpdated from './lastUpdated'
 import carbonAds from './carbonAds'
 import vue from '@vitejs/plugin-vue'
+import 'dotenv/config';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  server: {
-    watch: {
-      usePolling: true
-    }
-  },
   title: 'Dev docs',
   lang: 'uz',
-  // base: '/', // for localhost
-  base: '/dev-docs/', // for pages
+  base: process.env.BASE_URL,
   head,
   description:
     "Dasturlash tillari va texnologiyalarining O'zbek tilidagi interaktiv qo'llanmalari uchun platforma.",
@@ -46,6 +41,11 @@ export default defineConfig({
   editLink,
   lastUpdated,
   plugins: [vue()],
+  vite: {
+    ssr: {
+      noExternal: ['vitepress-plugin-testcomponents']
+    }
+  },
   // server: {
   //   watch: {
   //     usePolling: true, // Enables polling for file changes

@@ -9,11 +9,11 @@ const { frontmatter } = useData()
 
 <template>
   <div class="antialiased">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <!-- <div class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
       <nav class="flex justify-between items-center py-10 font-bold">
         <a class="text-xl" href="/" aria-label="The Vue Point">
           <img class="inline-block mr-2" style="width: 36px; height: auto" alt="logo" src="/logo.png" />
-          <span v-if="!frontmatter.index" class="hidden md:inline dark:text-white">The Vue Point</span>
+          <span v-if="!frontmatter['blog-home']" class="hidden md:inline dark:text-white">The Vue Point</span>
         </a>
         <div class="text-sm text-gray-500 dark:text-white leading-5">
           <a class="hover:text-gray-700 dark:hover:text-gray-200" href="https://github.com/vuejs/blog" target="_blank"
@@ -26,7 +26,7 @@ const { frontmatter } = useData()
             rel="noopener">Vuejs.org →</a>
         </div>
       </nav>
-    </div>
+    </div> -->
     <main class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
       <Home v-if="frontmatter['blog-home']" />
       <Article v-else-if="frontmatter['post']" />
