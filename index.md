@@ -82,7 +82,7 @@ features:
   - icon:
       src: /python.svg
     title: Python
-    # link: /pyhton/
+    link: /python/
     details: Keng qo'llaniladigan dasturlash tili bo'lib, ilmiy hisoblashdan veb dasturlashgacha turli sohalarda foydalaniladi.
   - icon:
       src: /cpp.svg
